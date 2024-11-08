@@ -3,20 +3,24 @@ import { useNavigate } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './index1.css'
+import Connexion from '../composant/connecter'
 
 
 function App() {
   /*const [count, setCount] = useState(0)
   const  navigate = useNavigate();
-  const errlogin = alert("Erreur login or password");*/
+  const [error, setError] = useState(false);
   const[login , SetLogin] = useState('aribiA');
   const[password , SetPassword] = useState('aaaa');
-  const [error, setError] = useState('');
-  if(login== "aribiA" && password== "aaaa"){
-    alert("connexion réussite");
 
-  }else{
-    alert("login ou mot de passe incorrect");
+  function connextion(){
+    e.preventDefault();
+
+    if(login== "aribiA" && password=="aaaa" ){
+      console.log("Connexion reussie");
+    }else{
+      setError(false);
+    }
   }
   return (
     <>
