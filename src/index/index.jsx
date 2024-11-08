@@ -6,9 +6,18 @@ import './index1.css'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  /*const [count, setCount] = useState(0)
   const  navigate = useNavigate();
-  const errlogin = alert("Erreur login or password");
+  const errlogin = alert("Erreur login or password");*/
+  const[login , SetLogin] = useState('aribiA');
+  const[password , SetPassword] = useState('aaaa');
+  const [error, setError] = useState('');
+  if(login== "aribiA" && password== "aaaa"){
+    alert("connexion réussite");
+
+  }else{
+    alert("login ou mot de passe incorrect");
+  }
   return (
     <>
       <form> 
@@ -27,7 +36,7 @@ function App() {
          </li>
         </div>
       
-        <button id="btn" type="button">Sign in </button>
+        <button id="btn" type="button" onClick >Sign in </button>
 
       </form>
     </>
