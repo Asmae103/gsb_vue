@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './index1.css'
+import '../api/api.jsx'
 //import Connexion from '../composant/connecter'
 
 
@@ -13,7 +14,7 @@ function App() {
   const[login , SetLogin] = useState('aribiA');
   const[password , SetPassword] = useState('aaaa');
 
-  function connextion(){
+  function connexion(e){
     e.preventDefault();
 
     if(login== "aribiA" && password=="aaaa" ){
@@ -21,7 +22,33 @@ function App() {
     }else{
       setError(false);
     }
+   
   }
+ 
+    
+  async function getVisiteur(leLogin, leMdp){
+    try{
+      const response = await api.get('/connexion',{
+        params: {
+          login: leLogin,
+          mdp: leMdp
+        },
+      });
+      return response;
+    }catch (error){
+      console.log("Erreur connexion API ")
+    }
+    getVisiteur(form.get("login"), form.get("password"))
+      .then((response) => {
+      if(response.data != null){
+        console.log(response.data);
+      } else{
+        setErreurLogin(true)
+      }
+      });
+    }
+  
+
   return (
     <>
       <form> 
@@ -30,17 +57,23 @@ function App() {
         <div>
           <label>Login:</label>
           <li> 
-            <input id="in" type="text" />
+            <input type="text" value={login} onChange={(e) => setLogin(e.target.value)}/>
           </li>
         </div>
         <div> 
           <label>Password:</label>
           <li>
-            <input id="in" type="password" />
+            <input  type="password" value={password} onChange={(e) => SetPassword(e.target.value )} />
          </li>
         </div>
       
-        <button id="btn" type="button" onClick >Sign in </button>
+        <button id="btn" type="Submit" 
+        onClick={(e) => {
+          connexion(e);
+        }}
+          >
+          Sign in 
+        </button>
 
       </form>
     </>
@@ -48,3 +81,15 @@ function App() {
 }
 
 export default App
+/* <button id="btn" type="Submit" 
+        onClick={() => 
+          navigate("/getVisiteur",{
+            params: {
+            login ,
+            password 
+          }
+        })
+        }
+          >
+          Sign in 
+        </button>*/
