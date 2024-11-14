@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './index1.css'
-import Connexion from '../composant/connecter'
+//import Connexion from '../composant/connecter'
 
 
 function App() {

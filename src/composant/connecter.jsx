@@ -1,7 +1,7 @@
-import { useState } from 'react'
+/*import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
 
-import { connecter } from 'react-router-dom'
+//import { connecter } from 'react-router-dom'
 //RTCPeerConnection 
 
 
@@ -10,4 +10,4 @@ function Connection(){
     const[password , SetPassword] = useState('aaaa');
     const [error, setError] = useState('');
 }
-export default Connection;
+export default Connection;*/
