@@ -7,7 +7,7 @@ import Connexion from '../composant/connecter'
 
 
 function App() {
-  /*const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0)
   const  navigate = useNavigate();
   const [error, setError] = useState(false);
   const[login , SetLogin] = useState('aribiA');
