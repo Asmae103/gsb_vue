@@ -20,6 +20,13 @@ function App() {
 
     if(login== "aribiA" && password=="aaaa" ){
       console.log("Connexion reussie");
+      <accueil/>
+       navigate("/Accueil", {
+        state: {
+          login,       
+          password,   
+        }
+    })
     }else{
       setError(false);
     }
