@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
@@ -11,8 +12,8 @@ function App() {
   const [count, setCount] = useState(0)
   const  navigate = useNavigate();
   const [error, setError] = useState(false);
-  const[login , SetLogin] = useState('aribiA');
-  const[password , SetPassword] = useState('aaaa');
+  const[login , SetLogin] = useState('');
+  const[password , SetPassword] = useState('');
 
   function connexion(e){
     e.preventDefault();
@@ -51,30 +52,30 @@ function App() {
 
   return (
     <>
-      <form> 
+      <form onSubmit={connexion}> 
         <img src="src/index/a.png"  />
-        <h2>Identifiez-vous </h2>
         <div>
-          <label>Login:</label>
-          <li> 
-            <input type="text" value={login} onChange={(e) => setLogin(e.target.value)}/>
+        {(error === true) ? <Alert title="Impossible de se connecter !" /> : null} 
+          <h2>Identifiez-vous </h2>
+          <div>
+            <label>Login:</label>
+            <li> 
+              <input type="text" value={login} onChange={(e) => SetLogin(e.target.value)}/>
+            </li>
+          </div>
+          <div> 
+            <label>Password:</label>
+            <li>
+              <input  type="password" value={password} onChange={(e) => SetPassword(e.target.value )} />
           </li>
+          </div>
+        
+          <button id="btn" type="Submit" 
+          onSubmit={connexion}
+            >
+            Sign in 
+          </button>
         </div>
-        <div> 
-          <label>Password:</label>
-          <li>
-            <input  type="password" value={password} onChange={(e) => SetPassword(e.target.value )} />
-         </li>
-        </div>
-      
-        <button id="btn" type="Submit" 
-        onClick={(e) => {
-          connexion(e);
-        }}
-          >
-          Sign in 
-        </button>
-
       </form>
     </>
   )
@@ -93,3 +94,12 @@ export default App
           >
           Sign in 
         </button>*/
+
+
+        /*  <button id="btn" type="Submit" 
+          onClick={(e) => {
+            connexion(e);
+          }}
+            >
+            Sign in 
+          </button>*/
