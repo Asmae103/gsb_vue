@@ -14,24 +14,38 @@ function App() {
   const [error, setError] = useState(false);
   const[login , SetLogin] = useState('');
   const[password , SetPassword] = useState('');
-
+  /*var myForm = document.getElementById("myForm");
+  formData = new FormData(myForm);*/
   function connexion(e){
     e.preventDefault();
-
-    if(login== "aribiA" && password=="aaaa" ){
-      console.log("Connexion reussie");
-      <accueil/>
-       navigate("/Accueil", {
-        state: {
-          login,       
-          password,   
-        }
-    })
+    const form = new FormData(e.currentTarget);
+    
+    if(login && password){
+     // console.log(response.data);
+    //  console.log("Connexion reussie");
+      getVisiteur(form.get("login"),form.get("password"))
+      //getVisiteur(login, password)
+        .then((response) => {
+          if(response.data != null){
+        //if (response && response.data) {
+         console.log("Connexion reussie",response.data);
+            navigate("/Accueil", {
+              state: {
+                login,       
+                password,   
+              }
+            })
+          } else{
+            setError(true);
+          }
+        });
+       
     }else{
       setError(false);
     }
    
   }
+
  
     
   async function getVisiteur(leLogin, leMdp){
@@ -46,23 +60,14 @@ function App() {
     }catch (error){
       console.log("Erreur connexion API ")
     }
-    getVisiteur(form.get("login"), form.get("password"))
-      .then((response) => {
-      if(response.data != null){
-        console.log(response.data);
-      } else{
-        setErreurLogin(true)
-      }
-      });
-    }
-  
-
+  }
+    
   return (
     <>
-      <form onSubmit={connexion}> 
+      <form id="myForm" name="myForm" onSubmit={connexion}> 
         <img src="src/index/a.png"  />
         <div>
-        {(error === true) ? <Alert title="Impossible de se connecter !" /> : null} 
+        {(error === true) ? <window.alert title="Impossible de se connecter !" /> : null} 
           <h2>Identifiez-vous </h2>
           <div>
             <label>Login:</label>
@@ -84,6 +89,7 @@ function App() {
           </button>
         </div>
       </form>
+     
     </>
   )
 }
