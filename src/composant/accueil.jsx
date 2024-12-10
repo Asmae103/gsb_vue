@@ -13,6 +13,13 @@ function Accueil() {
 
   return (
     <>
+     <nav>
+        <div class="main_pages">
+            <a href="#">Accueil</a>
+            <a href="#">Actualité</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
       <p> Bonjour, {login}</p>
     </>
   )
