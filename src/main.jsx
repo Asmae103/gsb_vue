@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 import App from './index/index.jsx'
 import './index.css'
 import Accueil from './composant/accueil.jsx'
+import Medecins from './composant/accueil/Medecins.jsx'
+import Rapports from './composant/accueil/Rapports.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const NotFound = () =>{
@@ -18,6 +20,21 @@ const router = createBrowserRouter([
     path:'/Accueil',
     element: <Accueil />
   },
+  { 
+    path:'accueil',
+    element: <Accueil />,
+    children: [
+      {
+        path: 'medecins',
+        element: <Medecins />
+      },
+      {
+        path: 'rapports',
+        element: <Rapports />
+      },
+
+     ]
+    },
   {
     path: '*', // Cette route attrape toutes les autres routes non définies
     element: <NotFound />

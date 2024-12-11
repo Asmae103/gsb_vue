@@ -15,6 +15,8 @@ function App() {
   const [error, setError] = useState(false);
   const [login, SetLogin] = useState('');
   const [password, SetPassword] = useState('');
+  const [nom, SetNom] = useState('');
+  const [prenom, SetPrenom] = useState('');
   /*var myForm = document.getElementById("myForm");
   formData = new FormData(myForm);*/
 
@@ -47,10 +49,7 @@ function App() {
           if (response.data != null) {
             console.log("Connexion reussie", response.data);
               navigate("/Accueil", {
-                  state: {
-                    login,       
-                    password,   
-                  }
+                  state: response.data
                 })
           } else {
             setError(true);

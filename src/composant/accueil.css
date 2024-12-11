@@ -1,9 +1,9 @@
 nav 
 {
-    margin: 100px auto;
-    width: 50%;
-    height: 100px;
-    background: #48435C;
+ 
+    width: 100%;
+    height: 70px;
+    background: #0686d7;
 }
  
 nav .main_pages 
@@ -19,7 +19,7 @@ nav .main_pages a
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100px;
+    height: 70px;
     text-decoration: none;
     font-family: Arial, sans-serif;
     color: white;
@@ -27,5 +27,12 @@ nav .main_pages a
  
 nav a:hover 
 {
-    background: #5A5766
+    background: #02578b;
+    height: 70px;
+
 }
+ nav img#idgsb{
+    height: 40px;
+    background-color: #0686d7;
+    border-radius: 5px;
+ }
