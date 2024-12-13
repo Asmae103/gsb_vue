@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import reactLogo from '../assets/react.svg'
+import reactLogo from '../../assets/react.svg'
 import viteLogo from '/vite.svg'
-import '../composant/accueil.css'
-import Navbar from '../composant/Navbar.jsx'
-
-
+import './Accueil.css'
+import Navbar from '../../composant/Navbar.jsx'
+import { Outlet } from "react-router"
 function Accueil() {
 
   const [count, setCount] = useState(0)
@@ -20,7 +19,8 @@ function Accueil() {
     <>
     <Navbar />
     <p> Bonjour, {nom} {prenom} </p>
-   
+    <Outlet />  
+
     </>
   )
 }
@@ -36,5 +36,5 @@ export default Accueil
             <a href="#">Calendar</a>
         </div>
     </nav>
-      <Outlet />
+   
     */

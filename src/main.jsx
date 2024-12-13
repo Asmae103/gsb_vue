@@ -2,9 +2,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './index/index.jsx'
 import './index.css'
-import Accueil from './composant/accueil.jsx'
-import Medecins from './composant/accueil/Medecins.jsx'
-import Rapports from './composant/accueil/Rapports.jsx'
+import Accueil from './pages/accueil/Accueil.jsx'
+import Medecins from './pages/accueil/Medecins.jsx'
+import Rapports from './pages/accueil/Rapports.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const NotFound = () =>{
@@ -16,12 +16,12 @@ const router = createBrowserRouter([
     path:'/',
     element: <App/>
   },
-  {
+ /* {
     path:'/Accueil',
     element: <Accueil />
-  },
+  },*/
   { 
-    path:'accueil',
+    path:'/accueil',
     element: <Accueil />,
     children: [
       {
