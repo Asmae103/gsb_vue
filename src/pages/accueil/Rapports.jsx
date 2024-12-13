@@ -10,8 +10,7 @@ import Navbar from "../../composant/Navbar.jsx";
 function Rapports(){
  const [count, setCount] = useState(0)
   const  navigate = useNavigate();
-  const location = useLocation();
-  const { nom, prenom } = location.state || {}; 
+  
 
     return (
      <>

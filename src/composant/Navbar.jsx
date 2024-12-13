@@ -31,7 +31,8 @@ export default function Navbar(state) {
             <div className="flex shrink-0 items-center">
               <img
                 alt="Your Company"
-                id="idgsb" src="src/index/a.png "  
+                id="idgsb" src="src/composant/a.png " 
+                style={{height: '40px', backgroundColor: '#0686d7',  borderRadius: '5px'}}
                 className="h-8 w-auto"
               />
             </div>
