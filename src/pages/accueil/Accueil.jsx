@@ -1,36 +1,46 @@
-import { useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
-import reactLogo from '../../assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState , useEffect } from 'react'
+import { useLocation,  Outlet } from 'react-router-dom'
+
 import './Accueil.css'
 import Navbar from '../../composant/Navbar.jsx'
-import { Outlet } from "react-router"
-import { createContext } from 'react';
-import MyContext from '../../composant/MyContext';
+/*import MyContext from '../../composant/MyContext';
 import Medecins from './Medecins.jsx'
-import Rapports from './Rapports.jsx'
-import { MyContextProvider } from '../../composant/MyContext.jsx'
+import Rapports from './Rapports.jsx'*/
+
 function Accueil() {
- 
-  const [count, setCount] = useState(0)
-  const  navigate = useNavigate();
-  const location = useLocation();
-  const { nom, prenom } = location.state || {};  // Accéder ànom et prenom
+   const { state } = useLocation(); 
+   const [dataVisiteur, setDataVisiteur]= useState(state);
+   const { nom, prenom } = dataVisiteur;
+ // const [count, setCount] = useState(0)
+  //const  navigate = useNavigate();
+
+  //const [error, setError]= useState();
+
+ // const { nom, prenom } = location.state || {};  // Accéder ànom et prenom
  // const {nom, prenom } = location.state || {};
 //console.log(login);
+//{nom} {prenom}
    
+   /* if(location.state){
+      setDataVisiteur(location.state);
+    }
+   */
+
+  useEffect(()=>{
+    console.log("states : ", state);
+    setDataVisiteur(state)
+  },[]);
 
   return (
     <>
     <Navbar />
-    <MyContextProvider>
-        <Medecins />
-    </MyContextProvider>
-    <Outlet />  
+    <p> Bonjour, {nom} {prenom}  </p>
+    
+    <Outlet context={{dataVisiteur, setDataVisiteur}}/>
        </>
   )
-}
 
+}
 export default Accueil
 
 /* <nav>
@@ -53,4 +63,10 @@ export default Accueil
    <MyContext.Provider value ={{nom,prenom} } >
           <Medecins />
     </MyContext.Provider>
+
+
+
+     <MyContextProvider>
+        <Medecins />
+    </MyContextProvider>
     */

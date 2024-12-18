@@ -1,44 +1,42 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './index/index.jsx'
-import './index.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Accueil from './pages/accueil/Accueil.jsx'
 import Medecins from './pages/accueil/Medecins.jsx'
 import Rapports from './pages/accueil/Rapports.jsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import App from './index/index.jsx'
+import './index.css'
 
+/*
 const NotFound = () =>{
   return <h1> Page non trouvable</h1>
 };
-
+*/
 const router = createBrowserRouter([
   {
     path:'/',
     element: <App/>
   },
- /* {
-    path:'/Accueil',
-    element: <Accueil />
-  },*/
+ 
   { 
-    path:'/accueil',
+    path:'/Accueil',
     element: <Accueil />,
     children: [
       {
-        path: 'medecins',
+        path: 'Medecins',
         element: <Medecins />
       },
       {
-        path: 'rapports',
+        path: 'Rapports',
         element: <Rapports />
       },
 
      ]
     },
-  {
+  /*{
     path: '*', // Cette route attrape toutes les autres routes non définies
     element: <NotFound />
-}
+}*/
 
 ]
 )

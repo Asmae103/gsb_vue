@@ -10,13 +10,11 @@ import api from '../api/api.jsx';
 
 
 function App() {
-  const [count, setCount] = useState(0)
   const navigate = useNavigate();
   const [error, setError] = useState(false);
   const [login, SetLogin] = useState('');
   const [password, SetPassword] = useState('');
-  const [nom, SetNom] = useState('');
-  const [prenom, SetPrenom] = useState('');
+  
   /*var myForm = document.getElementById("myForm");
   formData = new FormData(myForm);*/
 
@@ -48,7 +46,7 @@ function App() {
           console.log(response);
           if (response.data != null) {
             console.log("Connexion reussie", response.data);
-              navigate("/Accueil", {
+              navigate("/Accueil",{
                   state: response.data
                 })
           } else {

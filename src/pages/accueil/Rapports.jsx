@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, useOutletContext} from 'react-router-dom'
 //import reactLogo from '../assets/react.svg'
 import reactLogo from "../../assets/react.svg";
 import viteLogo from '/vite.svg'
@@ -8,10 +8,8 @@ import "./Rapports.css";
 import Navbar from "../../composant/Navbar.jsx"; 
 //import Navbar from '../composant/Navbar.jsx'
 function Rapports(){
- const [count, setCount] = useState(0)
-  const  navigate = useNavigate();
-  
 
+    const {dataVisiteur, setDataVisiteur} = useOutletContext();
     return (
      <>
      <p>pages des rapports</p>
@@ -21,4 +19,4 @@ function Rapports(){
 
 
 }
-export default Rapports
+export default Rapports;

@@ -1,15 +1,13 @@
-import { useState, useContext } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+
+import { useNavigate, useLocation, useOutletContext } from 'react-router-dom'
 //import reactLogo from '../assets/react.svg'
-import reactLogo from "../../assets/react.svg";
-import viteLogo from '/vite.svg'
+
 import './Medecins.css'
-import Navbar from '../../composant/Navbar.jsx'
-import MyContext from '../../composant/MyContext.jsx'
-import Accueil from './Accueil.jsx';
+
 function Medecins(){
-    const location = useLocation();
-   const{ nom , prenom }= useContext(MyContext);
+    //const location = useLocation();
+    const {dataVisiteur, setDataVisiteur} = useOutletContext();
+  // const{ nom , prenom }= useContext(MyContext);
    /* const context = useContext(MyContext);
     if(!context){
         console.log("erreur");
@@ -18,21 +16,12 @@ function Medecins(){
 
     return (
      <>
-     <p>Pages des medecins :{ {nom,prenom}}</p>
+        <p>Pages des medecins :</p>
+
      </>
     )
 
 
 }
 
-export default Medecins
-/*
-  <p>{{nom, prenom}}</p>;
-
-
-
-{context}
-
-
-
-*/
+export default Medecins;
