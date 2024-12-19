@@ -14,7 +14,7 @@ function App() {
   const [error, setError] = useState(false);
   const [login, SetLogin] = useState('');
   const [password, SetPassword] = useState('');
-  
+  const [erMessage, setErMessage] = useState('');
   /*var myForm = document.getElementById("myForm");
   formData = new FormData(myForm);*/
 
@@ -43,29 +43,38 @@ function App() {
         //getVisiteur(login, password)
         //console.log(form.get("password"))
         getVisiteur(form.get("login"), form.get("password")).then((response) => {
-          console.log(response);
+          //console.log(response);
           if (response.data != null) {
             console.log("Connexion reussie", response.data);
               navigate("/Accueil",{
                   state: response.data
                 })
           } else {
-            setError(true);
+           setError(true);
+            setErMessage("Login ou Mot de passe est incorrect");
           }
         });
 
     } else {
       setError(false);
-    }
+      setErMessage("Veuillez remplir tous les champs."); 
+    }  
 
   }
-
+//    {(error === true) ? <window.alert title="Impossible de se connecter !" /> : null}
   return (
     <>
       <form id="myForm" name="myForm" onSubmit={connexion}>
         <img src="src/index/a.png" />
+        {erMessage && ( 
+        <div id="bnerr">  
+                 <p > {erMessage}</p>
+            
+           
+          </div>
+        )}
         <div>
-          {(error === true) ? <window.alert title="Impossible de se connecter !" /> : null}
+      
           <h2>Identifiez-vous </h2>
           <div>
             <label for="myinput" >Login:</label>
@@ -85,6 +94,7 @@ function App() {
           >
             Sign in
           </button>
+         
         </div>
       </form>
 

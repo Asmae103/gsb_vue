@@ -37,6 +37,7 @@ function Accueil() {
     <p> Bonjour, {nom} {prenom}  </p>
     
     <Outlet context={{dataVisiteur, setDataVisiteur}}/>
+ 
        </>
   )
 
@@ -44,7 +45,7 @@ function Accueil() {
 export default Accueil
 
 /* <nav>
-      
+       <p>{setDataVisiteur}</p> 
 <p> Bonjour, {nom} {prenom} </p>
     <MyContext.Provider value ={{nom,prenom} } >
        

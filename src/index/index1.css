@@ -49,3 +49,12 @@ button:hover {
     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
    }
 }
+
+div#bnerr{
+   background-color: rgb(224, 16, 16);
+   color: #ffffff;
+   width: 80%;
+   height: 25px;
+   align-content: center;
+   margin: 10px;
+}
