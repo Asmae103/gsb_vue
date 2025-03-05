@@ -35,7 +35,7 @@ function App() {
 
   function connexion(e) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    const form = new FormData(e.currentTarget); //
 
     if (login && password) {
       // console.log(response.data);

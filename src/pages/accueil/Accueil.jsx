@@ -3,8 +3,9 @@ import { useLocation,  Outlet } from 'react-router-dom'
 
 import './Accueil.css'
 import Navbar from '../../composant/Navbar.jsx'
-/*import MyContext from '../../composant/MyContext';
 import Medecins from './Medecins.jsx'
+/*import MyContext from '../../composant/MyContext';
+
 import Rapports from './Rapports.jsx'*/
 
 function Accueil() {
